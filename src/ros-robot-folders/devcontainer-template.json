@@ -1,6 +1,6 @@
 {
     "id": "ros-robot-folders",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "ROS robot-folders",
     "description": "A template for setting up a container with robot-folders",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
@@ -8,7 +8,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "ROS version:",
+            "description": "ROS version",
             "proposals": [
                 "rolling-desktop-full",
                 "jammy-desktop-full",
@@ -17,9 +17,13 @@
             ],
             "default": "humble-desktop-full"
         },
+        "checkoutDir": {
+            "type": "string",
+            "description": "Path to checkout"
+        },
         "username": {
             "type": "string",
-            "description": "Username for remote user:",
+            "description": "Username for remote user",
             "proposals": [
                 "robot",
                 "ros"

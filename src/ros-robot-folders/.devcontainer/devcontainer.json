@@ -1,7 +1,7 @@
 {
 	"name": "ros-robot-folders",
   "privileged": true,
-  "remoteUser": "max",
+  "remoteUser": "${templateOption:username}",
   "image": "osrf/ros:${templateOption:imageVariant}",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:1": {
@@ -15,8 +15,6 @@
     "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
     "ghcr.io/duduribeiro/devcontainer-features/tmux:1": {}
   },
-  "workspaceFolder": "/home/ws",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws,type=bind",
   "containerEnv": {
     "ROS_LOCALHOST_ONLY": "1"
   },
@@ -36,11 +34,12 @@
     "--gpus=all"
   ],
   "mounts": [
-    // {
-    //   "source": "/path/to/checkout",
-    //   "target": "/home/ws/checkout",
-    //   "type": "volume",
-    // },
+    {
+      "source": "${templateOption:checkoutDir}",
+      "target": "/home/${templateOption:username}/checkout",
+      "type": "bind",
+      "consistency": "cached"
+    },
     {
       "source": "/tmp/.X11-unix",
       "target": "/tmp/.X11-unix",
