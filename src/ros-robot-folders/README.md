@@ -7,8 +7,9 @@ A template for setting up a container with robot-folders
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | ROS version: | string | humble-desktop-full |
-| username | Username for remote user: | string | robot |
+| imageVariant | ROS version | string | humble-desktop-full |
+| checkoutDir | Path to checkout | string | undefined |
+| username | Username for remote user | string | robot |
 
 
 
