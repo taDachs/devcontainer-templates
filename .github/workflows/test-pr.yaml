@@ -12,7 +12,7 @@ jobs:
         id: filter
         with:
           filters: |
-            color: ./**/color/**
+            ros-robot-folders: ./**/ros-robot-folders/**
 
   test:
     needs: [detect-changes]
