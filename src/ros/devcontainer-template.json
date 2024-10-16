@@ -1,6 +1,6 @@
 {
     "id": "ros",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "ROS",
     "description": "A template for setting up a container with robot-folders",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
@@ -16,6 +16,11 @@
                 "noetic-desktop-full"
             ],
             "default": "humble-desktop-full"
+        },
+        "additionalAptPackages": {
+            "type": "string",
+            "description": "Additional apt packages to install",
+            "default": ""
         },
         "username": {
             "type": "string",
