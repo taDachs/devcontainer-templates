@@ -13,7 +13,9 @@
     },
     "ghcr.io/tadachs/devcontainer-features/neovim:latest": {},
     "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
-    "ghcr.io/duduribeiro/devcontainer-features/tmux:1": {}
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages":  "${templateOption:additionalAptPackages}"
+    }
   },
   "containerEnv": {
     "ROS_LOCALHOST_ONLY": "1"
@@ -54,6 +56,5 @@
     }
   ],
   "postCreateCommand": {
-    "chown-ws": "sudo chown -R ${templateOption:username} /home/${templateOption:username}"
   }
 }

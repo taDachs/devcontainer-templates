@@ -12,7 +12,6 @@
       "userGid": "1000"
     },
     "ghcr.io/tadachs/devcontainer-features/neovim:latest": {},
-    "ghcr.io/duduribeiro/devcontainer-features/tmux:1": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages":  "${templateOption:additionalAptPackages}"
     }
@@ -52,7 +51,6 @@
     }
   ],
   "postCreateCommand": {
-    "chown-ws": "sudo chown -R ${templateOption:username} /home/${templateOption:username}",
     "rosdep": "sudo apt update && sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y"
   }
 }
