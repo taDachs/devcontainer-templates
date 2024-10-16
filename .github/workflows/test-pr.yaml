@@ -13,7 +13,6 @@ jobs:
         with:
           filters: |
             color: ./**/color/**
-            hello: ./**/hello/**
 
   test:
     needs: [detect-changes]

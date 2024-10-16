@@ -1,0 +1,60 @@
+{
+	"name": "ros-robot-folders",
+  "privileged": true,
+  "remoteUser": "max",
+  "image": "osrf/ros:${templateOption:imageVariant}",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "version": "latest",
+      "configureZshAsDefaultShell": true,
+      "username": "${templateOption:username}",
+      "userUid": "1000",
+      "userGid": "1000"
+    },
+    "ghcr.io/tadachs/devcontainer-features/neovim:latest": {},
+    "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
+    "ghcr.io/duduribeiro/devcontainer-features/tmux:1": {}
+  },
+  "workspaceFolder": "/home/ws",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws,type=bind",
+  "containerEnv": {
+    "ROS_LOCALHOST_ONLY": "1"
+  },
+  "runArgs": [
+    "--net=host",
+    "-e",
+    "DISPLAY=${env:DISPLAY}",
+    "-e",
+    "TERM=${env:TERM}",
+    "-e",
+    "SHELL=${env:SHELL}",
+    "-v",
+    "${env:SSH_AUTH_SOCK}:/tmp/ssh-agent.socket",
+    "-e",
+    "SSH_AUTH_SOCK=/tmp/ssh-agent.socket",
+    "--runtime=nvidia",
+    "--gpus=all"
+  ],
+  "mounts": [
+    // {
+    //   "source": "/path/to/checkout",
+    //   "target": "/home/ws/checkout",
+    //   "type": "volume",
+    // },
+    {
+      "source": "/tmp/.X11-unix",
+      "target": "/tmp/.X11-unix",
+      "type": "bind",
+      "consistency": "cached"
+    },
+    {
+      "source": "/dev/dri",
+      "target": "/dev/dri",
+      "type": "bind",
+      "consistency": "cached"
+    }
+  ],
+  "postCreateCommand": {
+    "chown-ws": "sudo chown -R ${templateOption:username} /home/ws/"
+  }
+}
