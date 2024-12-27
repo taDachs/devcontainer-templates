@@ -1,5 +1,5 @@
 {
-	"name": "ros-robot-folders",
+  "name": "ros-robot-folders",
   "privileged": true,
   "remoteUser": "${templateOption:username}",
   "image": "osrf/ros:${templateOption:imageVariant}",
@@ -15,7 +15,8 @@
     "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages":  "${templateOption:additionalAptPackages}"
-    }
+    },
+    "ghcr.io/devcontainers/features/node:1": {}  // for stuff like copilot, lsp
   },
   "containerEnv": {
     "ROS_LOCALHOST_ONLY": "1"
@@ -53,8 +54,16 @@
       "target": "/dev/dri",
       "type": "bind",
       "consistency": "cached"
+    },
+    {
+      "source": "/dev/shm",
+      "target": "/dev/shm",
+      "type": "bind",
+      "consistency": "cached"
     }
   ],
   "postCreateCommand": {
+    "video-group": "sudo usermod -aG video ${templateOption:username}",
+    "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
   }
 }

@@ -1,6 +1,6 @@
 {
     "id": "ros-robot-folders",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "name": "ROS robot-folders",
     "description": "A template for setting up a container with robot-folders",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
