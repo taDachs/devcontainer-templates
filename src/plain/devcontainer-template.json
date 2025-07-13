@@ -1,39 +1,31 @@
 {
-    "id": "ros-robot-folders",
-    "version": "0.0.6",
-    "name": "ROS robot-folders",
-    "description": "A template for setting up a container with robot-folders",
+    "id": "plain",
+    "version": "0.0.1",
+    "name": "plain",
+    "description": "A template for setting up a plain devcontainer",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
     "licenseURL": "https://github.com/devcontainers/template-starter/blob/main/LICENSE",
     "options": {
-        "imageVariant": {
+        "image": {
             "type": "string",
-            "description": "ROS version",
+            "description": "image",
             "proposals": [
-                "rolling-desktop-full",
-                "jammy-desktop-full",
-                "humble-desktop-full",
-                "noetic-desktop-full"
+                "ubuntu:24.04",
             ],
-            "default": "humble-desktop-full"
+            "default": "ubuntu:24.04"
         },
         "additionalAptPackages": {
             "type": "string",
             "description": "Additional apt packages to install",
             "default": ""
         },
-        "checkoutDir": {
-            "type": "string",
-            "description": "Path to checkout"
-        },
         "username": {
             "type": "string",
             "description": "Username for remote user",
             "proposals": [
-                "robot",
-                "ros"
+                "ubuntu",
             ],
-            "default": "robot"
+            "default": "ubuntu"
         }
     },
     "platforms": [

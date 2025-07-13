@@ -1,0 +1,32 @@
+{
+  "name": "isaac-lab-devcontainer",
+  "privileged": true,
+  "remoteUser": "ubuntu",
+  "dockerComposeFile": "compose.yaml",
+  "service": "isaac-lab-devcontainer",
+  "features": {
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "version": "latest",
+      "configureZshAsDefaultShell": true,
+      "username": "ubuntu",
+      "userUid": "1000",
+      "userGid": "1000"
+    },
+    "ghcr.io/tadachs/devcontainer-features/neovim:latest": {
+        "use_ppa": false,
+      },
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages":  "stow,tmux,ripgrep,python3-virtualenv,python3-venv,build-essential"
+    },
+  },
+  "workspaceFolder": "/home/ubuntu/isaac-lab-devcontainer",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/${templateOption:username}/ws,type=bind",
+  "containerEnv": {
+  },
+  "postCreateCommand": {
+    "video-group": "sudo usermod -aG video ubuntu",
+    "set-locale": "sudo apt-get update && sudo apt-get install -y locales && sudo locale-gen en_US.UTF-8 && sudo update-locale LANG=en_US.UTF-8"
+    // "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "ros",
+  "name": "plain",
   "privileged": true,
   "remoteUser": "${templateOption:username}",
-  "image": "osrf/ros:${templateOption:imageVariant}",
+  "image": "${templateOption:image}",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:1": {
       "version": "latest",
@@ -13,7 +13,7 @@
     },
     "ghcr.io/tadachs/devcontainer-features/neovim:latest": {
         "use_ppa": false,
-    },
+      },
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages":  "${templateOption:additionalAptPackages}"
     },
@@ -21,9 +21,7 @@
   },
   "workspaceFolder": "/home/${templateOption:username}/ws",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/${templateOption:username}/ws,type=bind",
-  "containerEnv": {
-    "ROS_LOCALHOST_ONLY": "1"
-  },
+  "containerEnv": {},
   "runArgs": [
     "--net=host",
     "-e",
@@ -60,7 +58,6 @@
     }
   ],
   "postCreateCommand": {
-    "rosdep": "sudo apt update && sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y",
     "video-group": "sudo usermod -aG video ${templateOption:username}",
     "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
   }

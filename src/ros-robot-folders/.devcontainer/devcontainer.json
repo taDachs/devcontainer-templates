@@ -11,7 +11,9 @@
       "userUid": "1000",
       "userGid": "1000"
     },
-    "ghcr.io/tadachs/devcontainer-features/neovim:latest": {},
+    "ghcr.io/tadachs/devcontainer-features/neovim:latest": {
+        "use_ppa": false,
+    },
     "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages":  "${templateOption:additionalAptPackages}"
