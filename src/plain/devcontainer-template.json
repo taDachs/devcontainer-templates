@@ -1,6 +1,6 @@
 {
     "id": "plain",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "plain",
     "description": "A template for setting up a plain devcontainer",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",

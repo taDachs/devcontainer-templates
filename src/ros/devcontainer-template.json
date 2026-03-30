@@ -1,6 +1,6 @@
 {
     "id": "ros",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "name": "ROS",
     "description": "A template for setting up a ROS devcontainer",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
