@@ -16,7 +16,7 @@
     },
     "ghcr.io/tadachs/devcontainer-features/claude-code:latest": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "tmux,ripgrep,${templateOption:additionalAptPackages}"
+      "packages": "tmux,ripgrep,python3-venv,${templateOption:additionalAptPackages}"
     },
     "ghcr.io/devcontainers/features/node:1": {}
   },

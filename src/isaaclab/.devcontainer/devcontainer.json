@@ -20,7 +20,7 @@
       "locale": "en_US.UTF-8"
     },
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "tmux,ripgrep,stow,python3-virtualenv,python3-venv,build-essential"
+      "packages": "tmux,ripgrep,python3-venv,stow,python3-virtualenv,build-essential"
     },
     "ghcr.io/devcontainers/features/node:1": {}
   },
