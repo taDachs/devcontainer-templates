@@ -9,8 +9,7 @@ check "tmux" tmux -V
 check "ripgrep" rg --version
 check "claude" claude --version
 check "node" node --version
-check "ros installed" test -d /opt/ros
-check "ros2 cli" bash -c "source /opt/ros/*/setup.bash && ros2 --help > /dev/null"
-check "fzirob" which fzirob
+check "locale configured" bash -c "locale | grep -q 'LANG=en_US.UTF-8'"
+check "stow" which stow
 
 reportResults

@@ -1,37 +1,11 @@
 {
-    "id": "ros",
-    "version": "0.0.5",
-    "name": "ROS",
-    "description": "A template for setting up a container with robot-folders",
+    "id": "isaaclab",
+    "version": "0.0.1",
+    "name": "Isaac Lab",
+    "description": "A template for setting up an NVIDIA Isaac Lab devcontainer",
     "documentationURL": "https://github.com/devcontainers/template-starter/tree/main/src/color",
     "licenseURL": "https://github.com/devcontainers/template-starter/blob/main/LICENSE",
-    "options": {
-        "imageVariant": {
-            "type": "string",
-            "description": "ROS version",
-            "proposals": [
-                "rolling-desktop-full",
-                "jammy-desktop-full",
-                "humble-desktop-full",
-                "noetic-desktop-full"
-            ],
-            "default": "humble-desktop-full"
-        },
-        "additionalAptPackages": {
-            "type": "string",
-            "description": "Additional apt packages to install",
-            "default": ""
-        },
-        "username": {
-            "type": "string",
-            "description": "Username for remote user",
-            "proposals": [
-                "robot",
-                "ros"
-            ],
-            "default": "robot"
-        }
-    },
+    "options": {},
     "platforms": [
         "Any"
     ]

@@ -8,21 +8,25 @@ jobs:
     outputs:
       templates: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
-            ros-robot-folders: ./**/ros-robot-folders/**
+            plain: src/plain/**
+            ros: src/ros/**
+            ros-robot-folders: src/ros-robot-folders/**
 
   test:
     needs: [detect-changes]
+    if: ${{ needs.detect-changes.outputs.templates != '[]' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       matrix:
         templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Smoke test for '${{ matrix.templates }}'
         id: smoke_test

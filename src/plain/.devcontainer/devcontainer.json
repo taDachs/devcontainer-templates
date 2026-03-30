@@ -1,26 +1,27 @@
 {
   "name": "plain",
   "privileged": true,
-  "remoteUser": "${templateOption:username}",
+  "remoteUser": "ubuntu",
   "image": "${templateOption:image}",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:1": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
       "version": "latest",
       "configureZshAsDefaultShell": true,
-      "username": "${templateOption:username}",
+      "username": "ubuntu",
       "userUid": "1000",
       "userGid": "1000"
     },
     "ghcr.io/tadachs/devcontainer-features/neovim:latest": {
-        "use_ppa": false,
-      },
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages":  "${templateOption:additionalAptPackages}"
+      "install_method": "ppa"
     },
-    "ghcr.io/devcontainers/features/node:1": {}  // for stuff like copilot, lsp
+    "ghcr.io/tadachs/devcontainer-features/claude-code:latest": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "tmux,ripgrep,${templateOption:additionalAptPackages}"
+    },
+    "ghcr.io/devcontainers/features/node:1": {}
   },
-  "workspaceFolder": "/home/${templateOption:username}/ws",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/${templateOption:username}/ws,type=bind",
+  "workspaceFolder": "/home/ubuntu/ws",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/ubuntu/ws,type=bind",
   "containerEnv": {},
   "runArgs": [
     "--net=host",
@@ -58,7 +59,7 @@
     }
   ],
   "postCreateCommand": {
-    "video-group": "sudo usermod -aG video ${templateOption:username}",
-    "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+    "video-group": "sudo usermod -aG video ubuntu",
+    "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts"
   }
 }

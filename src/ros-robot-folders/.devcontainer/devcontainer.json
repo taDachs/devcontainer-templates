@@ -1,24 +1,25 @@
 {
   "name": "ros-robot-folders",
   "privileged": true,
-  "remoteUser": "${templateOption:username}",
+  "remoteUser": "ubuntu",
   "image": "osrf/ros:${templateOption:imageVariant}",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:1": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
       "version": "latest",
       "configureZshAsDefaultShell": true,
-      "username": "${templateOption:username}",
+      "username": "ubuntu",
       "userUid": "1000",
       "userGid": "1000"
     },
     "ghcr.io/tadachs/devcontainer-features/neovim:latest": {
-        "use_ppa": false,
+      "install_method": "ppa"
     },
+    "ghcr.io/tadachs/devcontainer-features/claude-code:latest": {},
     "ghcr.io/tadachs/devcontainer-features/robot-folders:latest": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages":  "${templateOption:additionalAptPackages}"
+      "packages": "tmux,ripgrep,${templateOption:additionalAptPackages}"
     },
-    "ghcr.io/devcontainers/features/node:1": {}  // for stuff like copilot, lsp
+    "ghcr.io/devcontainers/features/node:1": {}
   },
   "containerEnv": {
     "ROS_LOCALHOST_ONLY": "1"
@@ -41,7 +42,7 @@
   "mounts": [
     {
       "source": "${templateOption:checkoutDir}",
-      "target": "/home/${templateOption:username}/checkout",
+      "target": "/home/ubuntu/checkout",
       "type": "bind",
       "consistency": "cached"
     },
@@ -65,7 +66,7 @@
     }
   ],
   "postCreateCommand": {
-    "video-group": "sudo usermod -aG video ${templateOption:username}",
-    "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts",
+    "video-group": "sudo usermod -aG video ubuntu",
+    "node-install": ". ${NVM_DIR}/nvm.sh && nvm install --lts"
   }
 }
