@@ -1,15 +1,13 @@
 
-# ROS (ros)
+# Isaac Lab (isaaclab)
 
-A template for setting up a container with robot-folders
+A template for setting up an NVIDIA Isaac Lab devcontainer
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | ROS version | string | humble-desktop-full |
-| additionalAptPackages | Additional apt packages to install | string | - |
-| username | Username for remote user | string | robot |
+
 
 
 

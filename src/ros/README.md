@@ -1,15 +1,14 @@
 
 # ROS (ros)
 
-A template for setting up a container with robot-folders
+A template for setting up a ROS devcontainer
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | ROS version | string | humble-desktop-full |
+| imageVariant | ROS version | string | kilted-desktop-full |
 | additionalAptPackages | Additional apt packages to install | string | - |
-| username | Username for remote user | string | robot |
 
 
 
