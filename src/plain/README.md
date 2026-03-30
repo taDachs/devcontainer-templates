@@ -9,7 +9,6 @@ A template for setting up a plain devcontainer
 |-----|-----|-----|-----|
 | image | image | string | ubuntu:24.04 |
 | additionalAptPackages | Additional apt packages to install | string | - |
-| username | Username for remote user | string | ubuntu |
 
 
 
